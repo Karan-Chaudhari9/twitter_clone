@@ -78,17 +78,7 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserModel('
-        'email: $email,'
-        ' name: $name,'
-        ' followers: $followers,'
-        ' following: $following, '
-        'profilePic: $profilePic, '
-        'bannerPic: $bannerPic,'
-        ' uid: $uid,'
-        ' bio: $bio,'
-        ' isTwitterBlue: $isTwitterBlue)';
-
+    return 'UserModel(email: $email, name: $name, followers: $followers, following: $following, profilePic: $profilePic, bannerPic: $bannerPic, uid: $uid, bio: $bio, isTwitterBlue: $isTwitterBlue)';
   }
 
   @override

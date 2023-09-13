@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:twitter_clone/tweet/widgets/tweet_list.dart';
 import '../theme/pallete.dart';
 import 'assets_constants.dart';
 
@@ -15,4 +16,9 @@ class UIConstants {
         centerTitle: true,
     );
   }
+  static const List<Widget> bottomTabBarPages = [
+    TweetList(),
+    Text('Search Screen'),
+    Text('Notification Screen'),
+  ];
 }

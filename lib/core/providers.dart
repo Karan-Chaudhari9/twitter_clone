@@ -1,4 +1,5 @@
 import 'package:appwrite/appwrite.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:twitter_clone/apis/user_api.dart';
 import 'package:twitter_clone/constants/constants.dart';
@@ -20,3 +21,14 @@ final appwriteDatabaseProvider = Provider((ref) {
   final client = ref.watch(appwriteClientProvider);
   return Databases(client);
 });
+
+final appwriteStorageProvider = Provider((ref) {
+  final client = ref.watch(appwriteClientProvider);
+  return Storage(client);
+});
+
+final appwriteRealtimeProvider = Provider((ref) {
+  final client = ref.watch(appwriteClientProvider);
+  return Realtime(client);
+});
+

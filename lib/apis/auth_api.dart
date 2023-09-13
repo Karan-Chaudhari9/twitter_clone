@@ -7,14 +7,14 @@ import 'package:twitter_clone/core/providers.dart';
 
 final authAPIProvider = Provider((ref){
   final account = ref.watch(appwriteAccountProvider);
-   return AuthAPI(account: account);
+  return AuthAPI(account: account);
 });
 
 abstract class IAuthAPI{
   FutureEither<model.User> signUp({
     required String email,
     required String password,
-});
+  });
   FutureEither<model.Session> logIn({
     required String email,
     required String password,
@@ -58,10 +58,10 @@ class AuthAPI implements IAuthAPI{
       );
     }catch (e,stackTrace){
       return left(
-          Failure(
-              e.toString(),
-              stackTrace
-          ),
+        Failure(
+            e.toString(),
+            stackTrace
+        ),
       );
     }
   }
@@ -69,7 +69,7 @@ class AuthAPI implements IAuthAPI{
   FutureEither<model.Session> logIn({
     required String email,
     required String password,
-})async{
+  })async{
     try{
       final session = await _account.createEmailSession(
           email: email,
@@ -93,5 +93,3 @@ class AuthAPI implements IAuthAPI{
     }
   }
 }
-
-

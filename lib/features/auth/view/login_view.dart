@@ -10,17 +10,16 @@ import '../../../theme/pallete.dart';
 import '../controller/auth_controller.dart';
 
 class LoginView extends ConsumerStatefulWidget{
-
   static route() => MaterialPageRoute(
     builder: (context) => const LoginView(),
   );
   const LoginView({super.key});
 
   @override
-  ConsumerState<LoginView> createState() => _LoginView();
+  ConsumerState<LoginView> createState() => _LoginViewState();
 }
 
-class _LoginView extends ConsumerState<LoginView>{
+class _LoginViewState  extends ConsumerState<LoginView>{
 
   final appbar = UIConstants.appBar();
   final emailController = TextEditingController();
@@ -33,8 +32,7 @@ class _LoginView extends ConsumerState<LoginView>{
     passwordController.dispose();
   }
   void onLogIn(){
-    ref.read(authControllProvider.notifier)
-        .logIn(
+    ref.read(authControllerProvider.notifier).logIn(
       email: emailController.text,
       password: passwordController.text,
       context: context,
@@ -42,7 +40,8 @@ class _LoginView extends ConsumerState<LoginView>{
   }
   @override
   Widget build(BuildContext context){
-    final isLoading = ref.watch(authControllProvider.notifier).state;
+    final isLoading = ref.watch(authControllerProvider);
+
     return Scaffold(
       appBar: appbar,
       body:  isLoading

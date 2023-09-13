@@ -10,17 +10,16 @@ import '../../../widgets/auth_field.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SignUpView extends ConsumerStatefulWidget{
-  const SignUpView({super.key});
-
   static route() => MaterialPageRoute(
     builder: (context) => const SignUpView(),
   );
+  const SignUpView({super.key});
 
   @override
-  ConsumerState<SignUpView> createState() => _SignUpView();
+  ConsumerState<SignUpView> createState() => _SignUpViewState();
 }
 
-class _SignUpView extends ConsumerState<SignUpView>{
+class _SignUpViewState extends ConsumerState<SignUpView>{
   final appbar = UIConstants.appBar();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -33,7 +32,7 @@ class _SignUpView extends ConsumerState<SignUpView>{
   }
 
   void onSignUp(){
-      ref.read(authControllProvider.notifier)
+      ref.read(authControllerProvider.notifier)
           .signUp(
           email: emailController.text,
           password: passwordController.text,
@@ -42,7 +41,7 @@ class _SignUpView extends ConsumerState<SignUpView>{
   }
   @override
   Widget build(BuildContext context){
-    final isLoding = ref.watch(authControllProvider);
+    final isLoding = ref.watch(authControllerProvider);
     return Scaffold(
       appBar: appbar,
       body: isLoding
